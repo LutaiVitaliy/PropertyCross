@@ -7,12 +7,17 @@
         "lodash": "^4.17.10"
     },
     "devDependencies": {
+        "babel-cli": "^6.26.0",
+        "babel-preset-env": "^1.7.0",
+        "eslint": "^4.19.1",
+        "eslint-plugin-react": "^7.8.2",
         "webpack": "^4.10.2",
         "webpack-cli": "^2.1.4"
     },
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "build": "webpack --mode production"
+        "build": "webpack --mode production",
+        "watch": "babel src -d dist --presets es2015 -w"
     },
     "repository": {
         "type": "git",

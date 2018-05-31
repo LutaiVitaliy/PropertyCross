@@ -1,7 +1,7 @@
 import _ from 'lodash';
 
 function component() {
-    var element = document.createElement('div');
+    let element = document.createElement('div');
 
     console.log(`Hello world`);
     element.innerHTML = _.join(['Hello', 'webpack'], ' ');
