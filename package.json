@@ -1,0 +1,27 @@
+{
+    "name": "propertycross",
+    "version": "1.0.0",
+    "description": "\"# PropertyCross\"",
+    "main": "index.js",
+    "dependencies": {
+        "lodash": "^4.17.10"
+    },
+    "devDependencies": {
+        "webpack": "^4.10.2",
+        "webpack-cli": "^2.1.4"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "webpack --mode production"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/LutaiVitaliy/PropertyCross.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/LutaiVitaliy/PropertyCross/issues"
+    },
+    "homepage": "https://github.com/LutaiVitaliy/PropertyCross#readme"
+}
