@@ -23,7 +23,7 @@
         "webpack-cli": "^2.1.5"
     },
     "scripts": {
-        "start": "webpack-dev-server --mode development --open --hot",,
+        "start": "webpack-dev-server --mode development --open --hot",
         "build": "webpack --mode production",
         "watch": "babel src -d dist --presets es2015 -w"
     },
