@@ -1,6 +1,17 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const autoprefixer = require('autoprefixer');
 
+const postCssLoader = {
+    loader: 'postcss-loader',
+    options: {
+        plugins: [
+            autoprefixer({
+                browsers: ['last 2 versions']
+            })
+        ],
+    }
+};
 
 module.exports = {
     entry: './src/index.js',
@@ -11,15 +22,15 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.js$/,
+                test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
                 use: {
                     loader: 'babel-loader'
                 },
             },
             {
-                test: /\.css$/,
-                use: ['style-loader', 'css-loader']
+                test: /\.scss$/,
+                use: ['style-loader', 'css-loader', postCssLoader, 'sass-loader']
             }
         ]
     },
@@ -27,5 +38,9 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: './src/index.html'
         })
-    ]
+    ],
+    devtool: 'source-map',
+    resolve: {
+        extensions: ['.js', '.jsx'],
+    }
 };
