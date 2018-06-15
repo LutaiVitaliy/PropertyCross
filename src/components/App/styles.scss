@@ -1,5 +1,46 @@
 :local {
   .container {
-    color: red;
+    color: black;
+  }
+  .appheader {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    justify-content: space-between;
+    background-color: #eaeff7;
+    color: black;
+    border-radius: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .maintitle {
+    align-content: center;
+    margin-left: 5%;
+  }
+  .favBtn {
+    background-color: aliceblue;
+    border-radius: 20px;
+    margin-right: 5%;
+    height: 40px;
+
+  }
+  body {
+    background-color: #f9fbff;
+  }
+  .inpCont {
+    background-color: red;
+    width: 30%;
+    min-height: 500px;
+    padding: 5px;
+  }
+  .mainContainer {
+    display: flex;
+    background-color: aqua;
+  }
+  .resCont {
+    background-color: blue;
+    width: 70%;
+    padding: 5px;
+    text-align: center;
   }
 }
