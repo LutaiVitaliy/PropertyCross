@@ -1,7 +1,12 @@
 import React from "react";
-import s from "../components/App/styles.scss";
+import s from "./styles.scss";
 
-class SearchResultsContainer extends React.Component {
+class SearchResultsComponent extends React.Component {
+    constructor(props){
+        super(props);
+
+    }
+
     render() {
         return (
             <div className={s.resCont}>
@@ -11,4 +16,4 @@ class SearchResultsContainer extends React.Component {
     }
 }
 
-export default SearchResultsContainer;
+export default SearchResultsComponent;

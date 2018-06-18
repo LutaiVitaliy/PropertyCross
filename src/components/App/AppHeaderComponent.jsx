@@ -1,7 +1,7 @@
 import React from "react";
-import s from   "../components/App/styles.scss"
+import s from "./styles.scss"
 
-class AppHeader extends React.Component {
+class AppHeaderComponent extends React.Component {
     render() {
         return <header className={s.appheader}>
             <h2 className={s.maintitle}>Property Cross</h2>
@@ -10,4 +10,4 @@ class AppHeader extends React.Component {
     }
 }
 
-export default AppHeader;
+export default AppHeaderComponent;
