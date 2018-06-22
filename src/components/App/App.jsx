@@ -8,25 +8,22 @@ import {
 import s from "./styles.scss";
 import AppHeaderComponent from "./AppHeaderComponent";
 import MainContainerComponent from "./MainContainerComponent";
+import SearchResultsComponent from "./SearchResultsComponent";
+import Propertylist from "../../containers/propertylist";
+import PropertyDetail from "../../containers/property-detail"
 
 class App extends React.Component {
-render() {
-    console.log(this.props);
-    return (
-        <Router>
-            <div className={s.container}>
-                <AppHeaderComponent/>
-                <MainContainerComponent/>
-            </div>
-        </Router>
-    )
-}
-}
-
-function mapStateToProps (state) {
-    return {
-        property: state
+    render() {
+        return (
+            <Router>
+                <div className={s.container}>
+                    <AppHeaderComponent/>
+                    <MainContainerComponent/>
+                    <PropertyDetail/>
+                </div>
+            </Router>
+        )
     }
 }
 
-export default connect(mapStateToProps)(App)
+export default App;

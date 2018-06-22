@@ -28,7 +28,7 @@
     background-color: #f9fbff;
   }
   .inpCont {
-    background-color: red;
+    background-color: azure;
     width: 30%;
     min-height: 500px;
     padding: 5px;
@@ -38,9 +38,25 @@
     background-color: aqua;
   }
   .resCont {
-    background-color: blue;
+    background-color: silver  ;
     width: 70%;
     padding: 5px;
-    text-align: center;
+    text-align: left;
+  }
+  .list {
+    border: 1px solid black;
+    display: flex;
+    padding-left: 10px;
+    align-items: center;
+    border-radius: 5px;
+    margin: 2px;
+  }
+  .listContainer {
+    margin: 10px;
+  }
+  .image {
+    position: absolute;
+    margin-left: 10px;
+    margin-top: 50px;
   }
 }

@@ -1,9 +1,11 @@
 import React from "react";
 import s from "./styles.scss"
+import PropertyDetail from "../../reducers/reducer-active-property"
+
 
 const instructionalText = "Use the form below to search for houses to buy. You can search by place-name, postcode, or click 'My location', to search in your current location!"
 
-class SearchInputComponent extends React.Component {
+class SearchInputComponent extends React.Component {д
     render() {
         return (
             <div className={s.inpCont}>
@@ -15,8 +17,8 @@ class SearchInputComponent extends React.Component {
                     <input type="submit" value="Go" />
                     <button>My location</button>
                 </form>
-            </div>)
-
+            </div>
+        )
     }
 }
 
