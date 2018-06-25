@@ -5,7 +5,7 @@ import PropertyDetail from "../../reducers/reducer-active-property"
 
 const instructionalText = "Use the form below to search for houses to buy. You can search by place-name, postcode, or click 'My location', to search in your current location!"
 
-class SearchInputComponent extends React.Component {д
+class SearchInputComponent extends React.Component {
     render() {
         return (
             <div className={s.inpCont}>

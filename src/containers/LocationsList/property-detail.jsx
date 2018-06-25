@@ -1,6 +1,6 @@
 import React from "react";
 import {connect} from "react-redux";
-import s from "../components/App/styles.scss"
+import s from "../../components/App/styles.scss"
 
 class PropertyDetail extends React.Component {
 

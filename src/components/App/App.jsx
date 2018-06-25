@@ -9,8 +9,8 @@ import s from "./styles.scss";
 import AppHeaderComponent from "./AppHeaderComponent";
 import MainContainerComponent from "./MainContainerComponent";
 import SearchResultsComponent from "./SearchResultsComponent";
-import Propertylist from "../../containers/propertylist";
-import PropertyDetail from "../../containers/property-detail"
+import Propertylist from "../../containers/LocationsList/propertylist";
+import PropertyDetail from "../../containers/LocationsList/property-detail"
 
 class App extends React.Component {
     render() {
@@ -19,7 +19,7 @@ class App extends React.Component {
                 <div className={s.container}>
                     <AppHeaderComponent/>
                     <MainContainerComponent/>
-                    <PropertyDetail/>
+
                 </div>
             </Router>
         )
