@@ -1,13 +1,10 @@
-let initialState ={};
+const initialState = {};
 
-
-export default function Locations (state = initialState, action) {
+export default function Locations(state = initialState, action) {
     switch (action.type) {
-        default: return state
-
+        default: return state;
     }
-
-};
+}
 
 // function propList(state, action) {
 //     if (action.type === "ELEMENTS_LIST") {

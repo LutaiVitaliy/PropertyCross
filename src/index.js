@@ -4,9 +4,8 @@ import App from './components/App/App';
 import {createStore} from "redux";
 import {Provider} from "react-redux";
 import configureStore from "./store/configureStore"
-import propertyState from "./reducers/index";
 
-const store = configureStore(propertyState);
+const store = configureStore();
 
 
 // function loadJSONP(src, completeCallback) {
