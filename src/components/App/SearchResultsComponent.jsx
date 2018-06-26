@@ -1,7 +1,7 @@
 import React from "react";
 import s from "./styles.scss";
 import PropertyElement from "../../index";
-import Propertylist from "../../containers/LocationsList/propertylist";
+import Propertylist from "../../containers/LocationsList/Locations";
 
 class SearchResultsComponent extends React.Component {
     constructor(props){

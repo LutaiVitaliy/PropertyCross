@@ -5,7 +5,7 @@ import reduxThunk from "redux-thunk";
 import reduxLogger from "redux-logger";
 
 export default function configureStore(initialState) {
-    const store = createStore(rootReducer, initialState, applyMiddleware(reduxThunk, reduxLogger, requestMiddleware));
+    const store = createStore(rootReducer, initialState, applyMiddleware(reduxThunk, requestMiddleware, reduxLogger));
 
     if (module.hot) {
         module.hot.accept('../reducers', () => {

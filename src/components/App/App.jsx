@@ -9,7 +9,7 @@ import s from "./styles.scss";
 import AppHeaderComponent from "./AppHeaderComponent";
 import MainContainerComponent from "./MainContainerComponent";
 import SearchResultsComponent from "./SearchResultsComponent";
-import Propertylist from "../../containers/LocationsList/propertylist";
+import Propertylist from "../../containers/LocationsList/Locations";
 import PropertyDetail from "../../containers/LocationsList/property-detail"
 
 class App extends React.Component {

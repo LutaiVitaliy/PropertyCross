@@ -7,36 +7,6 @@ import configureStore from "./store/configureStore"
 
 const store = configureStore();
 
-
-// function loadJSONP(src, completeCallback) {
-//     window.onGetData = function(res) {
-//         if (completeCallback) {
-//             completeCallback(res['response'])
-//         } else {
-//             console.log('completeCallback function is not defined');
-//         }
-//     };
-//
-//     const elem = document.createElement("script");
-//     elem.src = src;
-//     document.head.appendChild(elem);
-// }
-//
-// const testSRC = "https://api.nestoria.co.uk/api?country=uk&pretty=1&action=search_listings&encoding=json&listing_type=buy&page=1&place_name=leeds&callback=onGetData";
-//
-//
-//
-//
-// loadJSONP(testSRC,(response) => {
-//     console.log(response)
-// });
-
-fetch('http://api.nestoria.co.uk/api?country=uk&pretty=1&action=search_listings&encoding=json&listing_type=buy&page=1&place_name=leeds')
-    .then(res => res.json())
-    .then(body => store.dispatch({type: "ELEMENTS_LIST", payload: body}));
-
-//const locations = store.body;
-
 class PropertyElement extends React.Component {
     constructor(props) {
         super(props);
