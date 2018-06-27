@@ -1,13 +1,12 @@
 import React from "react";
 import s from "./styles.scss"
 import PropertyDetail from "../../reducers/reducer-active-property";
-import {findLocations} from "../../containers/LocationsList/actions";
+import {findLocations, setCurrentPlaceName} from "../../containers/LocationsList/actions";
 import {connect} from "react-redux";
-
 
 const instructionalText = "Use the form below to search for houses to buy. You can search by place-name, postcode, or click 'My location', to search in your current location!"
 
-class SearchInputComponent extends React.Component {
+class SearchInputContainer extends React.Component {
     constructor(props) {
         super(props);
         this.state = {value: ""};
@@ -22,7 +21,8 @@ class SearchInputComponent extends React.Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        this.props.findLocations(this.state.value)
+        this.props.findLocations(this.state.value);
+        this.props.setPlaceName(this.state.value)
     }
 
     render() {
@@ -41,12 +41,9 @@ class SearchInputComponent extends React.Component {
     }
 }
 
+const mapDispatchToProps = {
+    findLocations: findLocations,
+    setPlaceName: setCurrentPlaceName
+};
 
-
-const mapDispatchToProps = (dispatch) => ({
-    findLocations: (payload) => {
-        dispatch(findLocations(payload))
-    }
-});
-
-export default connect(null, mapDispatchToProps)(SearchInputComponent);
+export default connect(null, mapDispatchToProps)(SearchInputContainer);

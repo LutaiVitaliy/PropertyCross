@@ -1,6 +1,6 @@
 import React from "react";
 import s from "./styles.scss";
-import SearchInputComponent from "./SearchInputComponent";
+import SearchInputComponent from "./SearchInputContainer";
 import SearchResultContainer from "./SearchResultsComponent";
 
 class MainContainerComponent extends React.Component {
