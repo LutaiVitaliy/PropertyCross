@@ -12,31 +12,16 @@ const initialState = {
 export default function Locations(state = initialState, action) {
     switch (action.type) {
 
-        case RECEIVE_LOCATIONS:
-        {
-            return {...state, list: action.locations}
+        case RECEIVE_LOCATIONS:  {
+            return { ...state, list: action.locations };
         }
-        case SET_CURRENT_PLACE_NAME:
-        {
-            return {...state, placeName: action.placeName}
+        case SET_CURRENT_PLACE_NAME: {
+            return { ...state, placeName: action.placeName };
         }
-        case APPEND_LIST:
-        {
-            return {...state, list: [...state.list, ...action.list]}
+        case APPEND_LIST: {
+            return { ...state, list: [...state.list, ...action.list] };
         }
 
         default: return state;
     }
-
-
 }
-
-
-
-// function propList(state, action) {
-//     if (action.type === "ELEMENTS_LIST") {
-//         return {...state, proplist: action.payload}
-//     } else {
-//         return state
-//     }
-// }

@@ -1,16 +1,16 @@
 import React from "react";
 import s from "./styles.scss";
-import SearchInputComponent from "./SearchInputContainer";
+import SearchInputComponent from "../../containers/LocationsList/SearchInputContainer";
 import SearchResultContainer from "./SearchResultsComponent";
 
 class MainContainerComponent extends React.Component {
     render() {
         return (
             <div className={s.mainContainer}>
-                <SearchInputComponent/>
-                <SearchResultContainer/>
+                <SearchInputComponent />
+                <SearchResultContainer />
             </div>
-        )
+        );
     }
 }
 

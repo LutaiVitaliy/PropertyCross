@@ -1,7 +1,9 @@
-import React, {Component} from "react";
-import {connect} from "react-redux";
-import s from "../../components/App/styles.scss"
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import s from "../../components/App/styles.scss";
 import { getLocations, loadMoreLocations } from "./actions";
+import { Link, Route } from "react-router-dom";
+import PropertyDetail from "./property-detail";
 
 class Locations extends Component {
     constructor(props) {
@@ -13,7 +15,7 @@ class Locations extends Component {
     }
 
     componentDidMount() {
-        this.props.getLocations()
+        this.props.getLocations();
     }
 
     handleLoadMore() {
@@ -27,25 +29,29 @@ class Locations extends Component {
 
     createListItems() {
         if (this.props.locations.list) {
-            return this.props.locations.list.map((i, index) => {
+            return this.props.locations.list.map((item, index) => {
                 return (
-                    <div key={index} className={s.list} onClick={() => this.props.selectProperty(i)}>
-                        <img src={i.img_url} width={i.thumb_width} height={i.thumb_height}/>
+                    <div key={ item.latitude + index } className={s.list} >
+                        <img src={item.img_url} width={item.thumb_width} height={item.thumb_height} />
                         <ul className={s.listContainer}>
-                            <li>{i.title}</li>
-                            <li>Price: {i.price_formatted}</li>
+                            <li>{item.title}</li>
+                            <li>Price: {item.price_formatted}</li>
+                            <Link to={{
+                                pathname: "/details",
+                                item
+                            }}> Show details </Link>
+
                         </ul>
                     </div>
-                )
-            })
+                );
+            });
         } else {
             return (
             <div>
                 Введите локацию для поиска
             </div>
-            )
+            );
         }
-
     }
 
     moreButton() {
@@ -61,16 +67,12 @@ class Locations extends Component {
 
 
     render() {
-        return(
+        return (
             <div>
-                <div >
-                    {this.createListItems()}
-                </div>
-                <div>
-                    {this.moreButton()}
-                </div>
+                {this.createListItems()}
+                {this.moreButton()}
             </div>
-        )
+        );
     }
 }
 
@@ -78,7 +80,7 @@ function mapStateToProps(state) {
     return {
         locations: state.locations,
         placeName: state.locations.placeName
-    }
+    };
 }
 
 const mapDispatchToProps = {

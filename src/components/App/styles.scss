@@ -59,4 +59,33 @@
     margin-left: 10px;
     margin-top: 50px;
   }
+  .details {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+  }
+
+  .backBtn {
+    align-self: center;
+    padding: 20px 40px;
+    background-color: silver;
+    border-radius: 15px;
+  }
+
+  .detailsHeader {
+    display: flex;
+    justify-content: space-around;
+
+  }
+
+  .propertyDetailsContainer {
+
+  }
+
+  .detailsInfo {
+    padding: 10px;
+    margin-left: 20px;
+
+  }
+
 }

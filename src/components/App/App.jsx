@@ -1,24 +1,23 @@
-import React from 'react';
+import React from "react";
 import {
     BrowserRouter as Router,
     Route,
     Link
-} from 'react-router-dom';
+} from "react-router-dom";
 import s from "./styles.scss";
-import AppHeaderComponent from "./AppHeaderComponent";
-import MainContainerComponent from "./MainContainerComponent";
+import PropertyDetail from "../../containers/LocationsList/property-detail";
+import MainPageContainer from "./MainPageComponent";
 
 class App extends React.Component {
     render() {
         return (
             <Router>
                 <div className={s.container}>
-                    <AppHeaderComponent/>
-                    <MainContainerComponent/>
-
+                    <Route exact path="/" component={MainPageContainer} />
+                    <Route path="/details" component={PropertyDetail} />
                 </div>
             </Router>
-        )
+        );
     }
 }
 

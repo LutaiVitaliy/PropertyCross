@@ -1,5 +1,14 @@
 import React from "react";
+import AppHeaderComponent from "./AppHeaderComponent";
+import MainContainerComponent from "./MainContainerComponent";
 
-class MainPageContainer extends React.Component {
-
+export default class MainPageContainer extends React.Component {
+    render() {
+        return (
+            <div>
+                <AppHeaderComponent />
+                <MainContainerComponent />
+            </div>
+        );
+    }
 }
