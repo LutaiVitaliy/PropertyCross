@@ -42,5 +42,10 @@ module.exports = {
     devtool: 'source-map',
     resolve: {
         extensions: ['.js', '.jsx'],
+    },
+    devServer: {
+        hot: true,
+        historyApiFallback: true,
+        contentBase: "./public"
     }
 };

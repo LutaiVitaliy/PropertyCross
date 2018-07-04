@@ -1,5 +1,86 @@
 :local {
   .container {
-    color: #f3f;
+    color: black;
+  }
+  .appheader {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    justify-content: space-between;
+    background-color: #eaeff7;
+    color: black;
+    border-radius: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .maintitle {
+    align-content: center;
+    margin-left: 5%;
+  }
+  .favBtn {
+    background-color: aliceblue;
+    border-radius: 20px;
+    margin-right: 5%;
+    height: 40px;
+
+  }
+  body {
+    background-color: #f9fbff;
+  }
+  .inpCont {
+    background-color: azure;
+    width: 30%;
+    min-height: 500px;
+    padding: 5px;
+  }
+  .mainContainer {
+    display: flex;
+    background-color: aqua;
+  }
+  .resCont {
+    background-color: silver  ;
+    width: 70%;
+    padding: 5px;
+    text-align: left;
+  }
+  .list {
+    border: 1px solid black;
+    display: flex;
+    padding-left: 10px;
+    align-items: center;
+    border-radius: 5px;
+    margin: 2px;
+  }
+  .listContainer {
+    margin: 10px;
+  }
+  .image {
+    position: absolute;
+    margin-left: 10px;
+    margin-top: 50px;
+  }
+  .details {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+  }
+
+  .backBtn {
+    align-self: center;
+    padding: 20px 40px;
+    background-color: silver;
+    border-radius: 15px;
+  }
+
+  .detailsHeader {
+    display: flex;
+    justify-content: space-around;
+
+  }
+
+  .detailsInfo {
+    padding: 10px;
+    margin-left: 20px;
+
   }
 }
