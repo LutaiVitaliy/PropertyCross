@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import s from "../../components/App/styles.scss";
 import { getLocations, loadMoreLocations } from "./actions";
-import { Link, Route } from "react-router-dom";
-import PropertyDetail from "./property-detail";
+import { Link } from "react-router-dom";
 
 class Locations extends Component {
     constructor(props) {
@@ -28,30 +27,26 @@ class Locations extends Component {
     }
 
     createListItems() {
+        const uuidv1 = require("uuid/v1");
         if (this.props.locations.list) {
             return this.props.locations.list.map((item, index) => {
                 return (
-                    <div key={ item.latitude + index } className={s.list} >
+                    <div key={ uuidv1() } className={s.list} >
                         <img src={item.img_url} width={item.thumb_width} height={item.thumb_height} />
                         <ul className={s.listContainer}>
                             <li>{item.title}</li>
                             <li>Price: {item.price_formatted}</li>
-                            <Link to={{
-                                pathname: "/details",
-                                item
-                            }}> Show details </Link>
-
+                            <Link to={{ pathname: "/details", item }}>Show details </Link>
                         </ul>
                     </div>
                 );
             });
-        } else {
-            return (
+        }
+        return (
             <div>
                 Введите локацию для поиска
             </div>
-            );
-        }
+        );
     }
 
     moreButton() {

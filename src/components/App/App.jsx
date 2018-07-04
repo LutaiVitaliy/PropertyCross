@@ -6,14 +6,14 @@ import {
 } from "react-router-dom";
 import s from "./styles.scss";
 import PropertyDetail from "../../containers/LocationsList/property-detail";
-import MainPageContainer from "./MainPageComponent";
+import MainPageComponent from "./MainPageComponent";
 
 class App extends React.Component {
     render() {
         return (
             <Router>
                 <div className={s.container}>
-                    <Route exact path="/" component={MainPageContainer} />
+                    <Route exact path="/" component={MainPageComponent} />
                     <Route path="/details" component={PropertyDetail} />
                 </div>
             </Router>

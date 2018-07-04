@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import styles from "../../components/App/styles.scss";
 
 function PropertyDetail(props) {
-        return (
+    return (
         <div>
             <div className={styles.detailsHeader}>
                 <h2>{props.location.item.title}</h2>
@@ -12,19 +12,18 @@ function PropertyDetail(props) {
                     <Link to="/">Back</Link>
                 </div>
             </div>
-            <hr/>
+            <hr />
             <div className={styles.details}>
                 <div className={styles.detailsImge}>
                     <img src={props.location.item.img_url} />
                 </div>
                 <div className={styles.detailsInfo}>
-                    <span>{props.location.item.summary}</span><br/><br />
-                    <span>Bathroom number: {props.location.item.bathroom_number}</span><br/>
-                    <span>Badroom number: {props.location.item.badroom_number}</span>
+                    <p>{props.location.item.summary}</p><br />
+                    <p>Bathroom number: {props.location.item.bathroom_number}</p>
+                    <p>Badroom number: {props.location.item.badroom_number}</p>
                 </div>
             </div>
         </div>
-
     );
 }
 
