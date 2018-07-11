@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="27f5a31f-09dc-45e0-b72f-9d981f856291" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/components/App/FavPropertiesPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/FavPropertiesPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/LocationsList/Locations.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/LocationsList/Locations.jsx" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/dist/" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -29,10 +29,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FavPropertiesPage.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="FavPropertiesPage.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/App/FavPropertiesPage.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="164">
+            <state relative-caret-position="238">
               <caret line="14" column="7" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
@@ -99,11 +99,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Locations.jsx" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Locations.jsx" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/containers/LocationsList/Locations.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="31" column="20" lean-forward="true" selection-start-line="31" selection-start-column="20" selection-end-line="31" selection-end-column="20" />
+            <state relative-caret-position="442">
+              <caret line="35" column="61" selection-start-line="35" selection-start-column="61" selection-end-line="35" selection-end-column="61" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -199,9 +199,9 @@
         <option value="$PROJECT_DIR$/src/index.js" />
         <option value="$PROJECT_DIR$/src/containers/LocationsList/SearchInputContainer.jsx" />
         <option value="$PROJECT_DIR$/src/containers/LocationsList/actions.js" />
-        <option value="$PROJECT_DIR$/src/containers/LocationsList/Locations.jsx" />
         <option value="$PROJECT_DIR$/src/containers/LocationsList/locationItem.jsx" />
         <option value="$PROJECT_DIR$/src/components/App/FavPropertiesPage.js" />
+        <option value="$PROJECT_DIR$/src/containers/LocationsList/Locations.jsx" />
       </list>
     </option>
   </component>
@@ -343,12 +343,12 @@
       <workItem from="1528790958592" duration="124313000" />
       <workItem from="1530721097427" duration="5660000" />
       <workItem from="1530790254010" duration="27548000" />
-      <workItem from="1531160066893" duration="42919000" />
+      <workItem from="1531160066893" duration="43346000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="300615000" />
+    <option name="totallyTimeSpent" value="301042000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
@@ -659,22 +659,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/LocationsList/Locations.jsx">
+    <entry file="file://$PROJECT_DIR$/src/components/App/FavPropertiesPage.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="31" column="20" lean-forward="true" selection-start-line="31" selection-start-column="20" selection-end-line="31" selection-end-column="20" />
+        <state relative-caret-position="238">
+          <caret line="14" column="7" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
           <folding>
-            <element signature="e#0#41#0" expanded="true" />
+            <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/App/FavPropertiesPage.js">
+    <entry file="file://$PROJECT_DIR$/src/containers/LocationsList/Locations.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="14" column="7" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
+        <state relative-caret-position="442">
+          <caret line="35" column="61" selection-start-line="35" selection-start-column="61" selection-end-line="35" selection-end-column="61" />
           <folding>
-            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#0#41#0" expanded="true" />
           </folding>
         </state>
       </provider>

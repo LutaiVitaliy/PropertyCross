@@ -33,7 +33,7 @@ class Locations extends Component {
         }
         return (
             <div>
-                Введите локацию для поиска
+                <h3>Enter a location to search for houses buy.</h3>
             </div>
         );
     }
