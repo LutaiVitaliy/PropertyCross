@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { loadMoreLocations, addToFavourites } from "./actions";
+import { loadMoreLocations, addToFavourites, removeFromFavourites } from "./actions";
 import Item from "./locationItem";
 import { v1 } from "uuid";
 
@@ -23,7 +23,13 @@ class Locations extends Component {
 
     createListItems() {
         if (this.props.locations.currentPlaceName !== "") {
-            return this.props.locations.list.map(item => <Item key={v1()} add={this.props.addToFavourites} item={item} />);
+            return this.props.locations.list.map(item =>
+                <Item
+                    key={v1()}
+                    add={this.props.addToFavourites}
+                    remove={this.props.removeFromFavourites}
+                    item={item}
+                />);
         }
         return (
             <div>
@@ -62,7 +68,8 @@ function mapStateToProps(state) {
 
 const mapDispatchToProps = {
     loadMoreLocations,
-    addToFavourites
+    addToFavourites,
+    removeFromFavourites
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Locations);

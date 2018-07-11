@@ -3,13 +3,15 @@ import { Link } from "react-router-dom";
 import s from "../../components/App/styles.scss";
 
 export default function Item(props) {
-    const addButton = item => {
+    const favButton = item => {
         const filteredArr = JSON.parse(localStorage.favourites).filter(e => e.title === item.title);
         if (!filteredArr[0]) {
             return (
                 <button onClick={ () => props.add(props.item)} >Add to favourites</button>
             );
-        } return null;
+        } return (
+            <button onClick={() => props.remove(props.item)}>Remove from favourites</button>
+        );
     };
 
     return (
@@ -19,7 +21,7 @@ export default function Item(props) {
                 <li>{props.item.title}</li>
                 <li>Price: {props.item.price_formatted}</li>
                 <Link to={{ pathname: "/details", item: { ...props.item } }}>Show details </Link>
-                {addButton(props.item)}
+                {favButton(props.item)}
             </ul>
         </div>
     );
