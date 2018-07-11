@@ -2,21 +2,17 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./styles.scss";
 import FavItem from "./FavItem";
-import {connect} from "react-redux";
-import {removeFromFavourites} from "../../containers/LocationsList/actions";
+import { connect } from "react-redux";
+import { removeFromFavourites } from "../../containers/LocationsList/actions";
+import { v1 } from "uuid/";
 
 class FavProperties extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         if (localStorage.favourites) {
             const arr = JSON.parse(localStorage.favourites);
-            const uuidv1 = require("uuid/v1");
             return (
                 <div>
-                    {arr.map(item => <FavItem key={uuidv1()} item={item} remove={this.props.removeFromFavourites}/>)}
+                    {arr.map(item => <FavItem key={v1()} item={item} remove={this.props.removeFromFavourites}/>)}
                     <Link to="/" >Back</Link>
                 </div>
             );
@@ -25,7 +21,7 @@ class FavProperties extends React.Component {
         return (
             <div>
                 <div>
-                    No favourites
+                    <p>No favourites</p>
                 </div>
                 <Link to="/" >Back</Link>
             </div>

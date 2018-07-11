@@ -1,4 +1,10 @@
-import { APPEND_LIST, SET_CURRENT_PLACE_NAME, RECEIVE_LOCATIONS, ADD_TO_FAVOURITES, REMOVE_FROM_FAVOURITES } from "./constants";
+import {
+    APPEND_LIST,
+    SET_CURRENT_PLACE_NAME,
+    RECEIVE_LOCATIONS,
+    ADD_TO_FAVOURITES,
+    REMOVE_FROM_FAVOURITES
+} from "./constants";
 
 export const receiveLocations = locations => ({
     type: RECEIVE_LOCATIONS,

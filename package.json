@@ -12,8 +12,6 @@
         "react-router": "^4.3.1",
         "react-router-dom": "^4.3.1",
         "redux": "^4.0.0",
-        "redux-local-storage": "^1.4.1",
-        "redux-localstorage": "^0.4.1",
         "redux-logger": "^3.0.6",
         "redux-thunk": "^2.3.0",
         "uuid": "^3.3.2"

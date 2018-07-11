@@ -2,29 +2,28 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { loadMoreLocations, addToFavourites } from "./actions";
 import Item from "./locationItem";
+import { v1 } from "uuid";
 
 class Locations extends Component {
     constructor(props) {
         super(props);
-
-        this.page = 1;
+        this.state = { page: 1 };
 
         this.handleLoadMore = this.handleLoadMore.bind(this);
     }
 
     handleLoadMore() {
-        this.page++;
+        this.setState({ page: this.state.page++ });
 
         this.props.loadMoreLocations({
             placeName: this.props.locations.currentPlaceName,
-            page: this.page
+            page: this.state.page
         });
     }
 
     createListItems() {
         if (this.props.locations.currentPlaceName !== "") {
-            const uuidv1 = require("uuid/v1");
-            return this.props.locations.list.map(item => <Item key={uuidv1()} add={this.props.addToFavourites} item={item} />);
+            return this.props.locations.list.map(item => <Item key={v1()} add={this.props.addToFavourites} item={item} />);
         }
         return (
             <div>

@@ -6,10 +6,7 @@ import { connect } from "react-redux";
 const instructionalText = "Use the form below to search for houses to buy. You can search by place-name, postcode, or click 'My location', to search in your current location!"
 
 class SearchInputContainer extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {value: ""};
-    }
+    state = {value: ""};
 
     handleChange = event => {
         this.setState({ value: event.target.value });
