@@ -7,25 +7,43 @@ import { removeFromFavourites } from "../../containers/LocationsList/actions";
 import { v1 } from "uuid/";
 
 class FavProperties extends React.Component {
-    render() {
-        if (localStorage.favourites) {
-            const arr = JSON.parse(localStorage.favourites);
+    constructor(props) {
+        super(props);
+    }
+
+    noFav = () => {
+       if (localStorage.favourites.length < 3) {
             return (
                 <div>
-                    {arr.map(item => <FavItem key={v1()} item={item} remove={this.props.removeFromFavourites}/>)}
-                    <Link to="/" >Back</Link>
+                    <div>
+                        <p>No favourites</p>
+                    </div>
                 </div>
             );
         }
+        return null;
+    };
 
+    fav = () => {
+        const arr = JSON.parse(localStorage.favourites);
+        if (arr.length) {
+            return (
+                <div>
+                    {arr.map(item => <FavItem key={v1()} item={item} remove={this.props.removeFromFavourites}/>)}
+                </div>
+            );
+        }
+        return null;
+    };
+
+    render() {
         return (
             <div>
-                <div>
-                    <p>No favourites</p>
-                </div>
-                <Link to="/" >Back</Link>
+                {this.fav()}
+                {this.noFav()}
+                <Link to="/">Back</Link>
             </div>
-        );
+        )
     }
 }
 
