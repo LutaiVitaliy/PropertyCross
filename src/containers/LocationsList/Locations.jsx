@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import s from "../../components/App/styles.scss";
-import { getLocations, loadMoreLocations } from "./actions";
-import { Link } from "react-router-dom";
+import { loadMoreLocations, addToFavourites } from "./actions";
+import Item from "./locationItem";
 
 class Locations extends Component {
     constructor(props) {
@@ -13,34 +12,19 @@ class Locations extends Component {
         this.handleLoadMore = this.handleLoadMore.bind(this);
     }
 
-    componentDidMount() {
-        this.props.getLocations();
-    }
-
     handleLoadMore() {
         this.page++;
 
         this.props.loadMoreLocations({
-            placeName: this.props.placeName,
+            placeName: this.props.locations.currentPlaceName,
             page: this.page
         });
     }
 
     createListItems() {
-        const uuidv1 = require("uuid/v1");
-        if (this.props.locations.list) {
-            return this.props.locations.list.map((item, index) => {
-                return (
-                    <div key={ uuidv1() } className={s.list} >
-                        <img src={item.img_url} width={item.thumb_width} height={item.thumb_height} />
-                        <ul className={s.listContainer}>
-                            <li>{item.title}</li>
-                            <li>Price: {item.price_formatted}</li>
-                            <Link to={{ pathname: "/details", item }}>Show details </Link>
-                        </ul>
-                    </div>
-                );
-            });
+        if (this.props.locations.currentPlaceName !== "") {
+            const uuidv1 = require("uuid/v1");
+            return this.props.locations.list.map(item => <Item key={uuidv1()} add={this.props.addToFavourites} item={item} />);
         }
         return (
             <div>
@@ -60,7 +44,6 @@ class Locations extends Component {
         return loadMoreButton;
     }
 
-
     render() {
         return (
             <div>
@@ -79,8 +62,8 @@ function mapStateToProps(state) {
 }
 
 const mapDispatchToProps = {
-    getLocations,
-    loadMoreLocations
+    loadMoreLocations,
+    addToFavourites
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Locations);
