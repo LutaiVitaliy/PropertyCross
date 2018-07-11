@@ -54,8 +54,8 @@ export function removeFromFavourites(item) {
     };
 }
 
-export const loadMoreLocations = ({ placeName, page = 1 }) => dispatch => {
-    fetch(`http://api.nestoria.co.uk/api?country=uk&pretty=1&action=search_listings&encoding=json&listing_type=buy&page=${page}&place_name=${placeName}`)
+export const loadMoreLocations = ({ placeName, page = 1, centrePoint = "51.684183,-3.431481" }) => dispatch => {
+    fetch(`http://api.nestoria.co.uk/api?country=uk&pretty=1&action=search_listings&centre_point=${centrePoint}&encoding=json&listing_type=buy&page=${page}&place_name=${placeName}`)
         .then(response => response.json())
         .then(json => json.response.listings)
         .then(listings => dispatch(

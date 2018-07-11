@@ -12,6 +12,15 @@ class SearchInputContainer extends React.Component {
         this.setState({ value: event.target.value });
     };
 
+    geoSearch = event => {
+        event.preventDefault();
+        if ("geolocation" in navigator) {
+            navigator.geolocation.getCurrentPosition(position => console.log(position));
+        } else {
+            console.log("Геолокация Недоступна");
+        }
+    };
+
     handleSubmit = event => {
         event.preventDefault();
         const placeName = this.state.value;
@@ -28,7 +37,7 @@ class SearchInputContainer extends React.Component {
                         <input type="text" name="search-place" value={this.state.value} onChange={this.handleChange} />
                     </label>
                     <input type="submit" value="Go" />
-                    <button>My location</button>
+                    <button onClick={this.geoSearch}>My location</button>
                 </form>
             </div>
         );
