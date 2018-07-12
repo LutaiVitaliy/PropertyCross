@@ -32,9 +32,7 @@ class Locations extends Component {
                 />);
         }
         return (
-            <div>
-                <h3>Enter a location to search for houses buy.</h3>
-            </div>
+            <h3>Enter a location to search for houses buy.</h3>
         );
     }
 

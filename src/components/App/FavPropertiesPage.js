@@ -7,17 +7,11 @@ import { removeFromFavourites } from "../../containers/LocationsList/actions";
 import { v1 } from "uuid/";
 
 class FavProperties extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
     noFav = () => {
        if (localStorage.favourites.length < 3) {
             return (
                 <div>
-                    <div>
-                        <p>No favourites</p>
-                    </div>
+                    <p>No favourites</p>
                 </div>
             );
         }
@@ -37,10 +31,10 @@ class FavProperties extends React.Component {
     };
 
     render() {
+        const favourites = JSON.parse(localStorage.favourites);
         return (
             <div>
-                {this.fav()}
-                {this.noFav()}
+                { favourites.length ? this.fav() : this.noFav() }
                 <Link to="/">Back</Link>
             </div>
         )

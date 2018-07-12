@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import s from "../../components/App/styles.scss";
 
 export default function Item(props) {
-    const favButton = item => {
-        const filteredArr = JSON.parse(localStorage.favourites).filter(e => e.title === item.title);
+    const favButton = () => {
+        const filteredArr = JSON.parse(localStorage.favourites).filter(element => element.title === props.item.title);
         if (!filteredArr[0]) {
             return (
                 <button onClick={ () => props.add(props.item)} >Add to favourites</button>
