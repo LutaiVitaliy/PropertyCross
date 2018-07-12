@@ -1,51 +1,38 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import s from "../../components/App/styles.scss";
-import { getLocations, loadMoreLocations } from "./actions";
-import { Link } from "react-router-dom";
+import { loadMoreLocations, addToFavourites, removeFromFavourites } from "./actions";
+import Item from "./locationItem";
+import { v1 } from "uuid";
 
 class Locations extends Component {
     constructor(props) {
         super(props);
-
-        this.page = 1;
+        this.state = { page: 1 };
 
         this.handleLoadMore = this.handleLoadMore.bind(this);
     }
 
-    componentDidMount() {
-        this.props.getLocations();
-    }
-
     handleLoadMore() {
-        this.page++;
+        this.setState({ page: this.state.page++ });
 
         this.props.loadMoreLocations({
-            placeName: this.props.placeName,
-            page: this.page
+            placeName: this.props.locations.currentPlaceName,
+            page: this.state.page
         });
     }
 
     createListItems() {
-        const uuidv1 = require("uuid/v1");
-        if (this.props.locations.list) {
-            return this.props.locations.list.map((item, index) => {
-                return (
-                    <div key={ uuidv1() } className={s.list} >
-                        <img src={item.img_url} width={item.thumb_width} height={item.thumb_height} />
-                        <ul className={s.listContainer}>
-                            <li>{item.title}</li>
-                            <li>Price: {item.price_formatted}</li>
-                            <Link to={{ pathname: "/details", item }}>Show details </Link>
-                        </ul>
-                    </div>
-                );
-            });
+        if (this.props.locations.currentPlaceName !== "") {
+            return this.props.locations.list.map(item =>
+                <Item
+                    key={v1()}
+                    add={this.props.addToFavourites}
+                    remove={this.props.removeFromFavourites}
+                    item={item}
+                />);
         }
         return (
-            <div>
-                Введите локацию для поиска
-            </div>
+            <h3>Enter a location to search for houses buy.</h3>
         );
     }
 
@@ -59,7 +46,6 @@ class Locations extends Component {
         );
         return loadMoreButton;
     }
-
 
     render() {
         return (
@@ -79,8 +65,9 @@ function mapStateToProps(state) {
 }
 
 const mapDispatchToProps = {
-    getLocations,
-    loadMoreLocations
+    loadMoreLocations,
+    addToFavourites,
+    removeFromFavourites
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Locations);

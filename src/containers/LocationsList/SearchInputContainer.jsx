@@ -1,6 +1,6 @@
 import React from "react";
 import s from "../../components/App/styles.scss";
-import { findLocations, setCurrentPlaceName } from "./actions";
+import { loadMoreLocations, setCurrentPlaceName } from "./actions";
 import { connect } from "react-redux";
 
 const instructionalText = "Use the form below to search for houses to buy. You can search by place-name, postcode, or click 'My location', to search in your current location!"
@@ -12,9 +12,19 @@ class SearchInputContainer extends React.Component {
         this.setState({ value: event.target.value });
     };
 
+    geoSearch = event => {
+        event.preventDefault();
+        if ("geolocation" in navigator) {
+            navigator.geolocation.getCurrentPosition(position => console.log(position));
+        } else {
+            console.log("Геолокация Недоступна");
+        }
+    };
+
     handleSubmit = event => {
         event.preventDefault();
-        this.props.findLocations(this.state.value);
+        const placeName = this.state.value;
+        this.props.loadMoreLocations({ placeName });
         this.props.setPlaceName(this.state.value);
     };
 
@@ -27,7 +37,7 @@ class SearchInputContainer extends React.Component {
                         <input type="text" name="search-place" value={this.state.value} onChange={this.handleChange} />
                     </label>
                     <input type="submit" value="Go" />
-                    <button>My location</button>
+                    <button onClick={this.geoSearch}>My location</button>
                 </form>
             </div>
         );
@@ -35,7 +45,7 @@ class SearchInputContainer extends React.Component {
 }
 
 const mapDispatchToProps = {
-    findLocations,
+    loadMoreLocations,
     setPlaceName: setCurrentPlaceName
 };
 

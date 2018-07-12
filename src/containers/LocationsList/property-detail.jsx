@@ -21,6 +21,7 @@ function PropertyDetail(props) {
                     <p>{props.location.item.summary}</p><br />
                     <p>Bathroom number: {props.location.item.bathroom_number}</p>
                     <p>Badroom number: {props.location.item.badroom_number}</p>
+                    <a href={props.location.item.lister_url} target="_blank">View on official site</a>
                 </div>
             </div>
         </div>
