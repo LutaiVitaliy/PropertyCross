@@ -17,7 +17,7 @@ class Locations extends Component {
     };
 
     createListItems() {
-        if (this.props.locations.currentPlaceName !== "") {
+        if (this.props.locations.currentPlaceName !== "" && this.props.locations.list.length) {
             return this.props.locations.list.map(item =>
                 <Item
                     key={v1()}
@@ -25,10 +25,13 @@ class Locations extends Component {
                     remove={this.props.removeFromFavourites}
                     item={item}
                 />);
+        } else if (this.props.locations.currentPlaceName !== "" && !this.props.locations.list.length) {
+            return (<p>No results found.</p>);
+        } else {
+            return (
+                <h3>Enter a location to search for houses buy.</h3>
+            );
         }
-        return (
-            <h3>Enter a location to search for houses buy.</h3>
-        );
     }
 
     moreButton() {

@@ -15,6 +15,12 @@ function PropertyDetail(props) {
         } return null;
     };
 
+    const carSpaces = () => {
+        if (props.location.item.car_spaces) {
+            return <p>Car spaces: {props.location.item.car_spaces}</p>
+        } return null;
+    };
+
     return (
         <div>
             <div className={styles.detailsHeader}>
@@ -33,6 +39,7 @@ function PropertyDetail(props) {
                     <p>{props.location.item.summary}</p><br />
                     {bathRoomNumber()}
                     {badRoomNumber()}
+                    {carSpaces()}
                     <a href={props.location.item.lister_url} target="_blank">View on official site</a>
                 </div>
             </div>
