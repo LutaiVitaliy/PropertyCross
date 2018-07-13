@@ -5,21 +5,16 @@ import Item from "./locationItem";
 import { v1 } from "uuid";
 
 class Locations extends Component {
-    constructor(props) {
-        super(props);
-        this.state = { page: 1 };
+    state = { page: 1 };
 
-        this.handleLoadMore = this.handleLoadMore.bind(this);
-    }
-
-    handleLoadMore() {
+    handleLoadMore = () => {
         this.setState({ page: this.state.page++ });
 
         this.props.loadMoreLocations({
             placeName: this.props.locations.currentPlaceName,
             page: this.state.page
         });
-    }
+    };
 
     createListItems() {
         if (this.props.locations.currentPlaceName !== "") {
