@@ -4,7 +4,10 @@ import s from "../../components/App/styles.scss";
 
 export default function Item(props) {
     const favButton = () => {
-        const filteredArr = JSON.parse(localStorage.favourites).filter(element => element.title === props.item.title);
+        const favourites = localStorage.favourites ?
+            JSON.parse(localStorage.favourites) :
+            [];
+        const filteredArr = favourites.filter(element => element.title === props.item.title);
         if (!filteredArr[0]) {
             return (
                 <button onClick={ () => props.add(props.item)} >Add to favourites</button>

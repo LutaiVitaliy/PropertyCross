@@ -3,6 +3,24 @@ import { Link } from "react-router-dom";
 import styles from "../../components/App/styles.scss";
 
 function PropertyDetail(props) {
+    const bathRoomNumber = () => {
+        if (props.location.item.bathroom_number) {
+            return <p>Bathroom number: {props.location.item.bathroom_number}</p>
+        } return null;
+    };
+
+    const badRoomNumber = () => {
+        if (props.location.item.badroom_number) {
+            return <p>Bathroom number: {props.location.item.badroom_number}</p>
+        } return null;
+    };
+
+    const carSpaces = () => {
+        if (props.location.item.car_spaces) {
+            return <p>Car spaces: {props.location.item.car_spaces}</p>
+        } return null;
+    };
+
     return (
         <div>
             <div className={styles.detailsHeader}>
@@ -19,8 +37,9 @@ function PropertyDetail(props) {
                 </div>
                 <div className={styles.detailsInfo}>
                     <p>{props.location.item.summary}</p><br />
-                    <p>Bathroom number: {props.location.item.bathroom_number}</p>
-                    <p>Badroom number: {props.location.item.badroom_number}</p>
+                    {bathRoomNumber()}
+                    {badRoomNumber()}
+                    {carSpaces()}
                     <a href={props.location.item.lister_url} target="_blank">View on official site</a>
                 </div>
             </div>

@@ -8,7 +8,10 @@ import { v1 } from "uuid/";
 
 class FavProperties extends React.Component {
     noFav = () => {
-       if (localStorage.favourites.length < 3) {
+        const favourites = localStorage.favourites ?
+            JSON.parse(localStorage.favourites):
+            [];
+        if (!favourites.length) {
             return (
                 <div>
                     <p>No favourites</p>
@@ -19,7 +22,9 @@ class FavProperties extends React.Component {
     };
 
     fav = () => {
-        const arr = JSON.parse(localStorage.favourites);
+        const arr = localStorage.favourites ?
+            JSON.parse(localStorage.favourites) :
+            [];
         if (arr.length) {
             return (
                 <div>
@@ -31,7 +36,9 @@ class FavProperties extends React.Component {
     };
 
     render() {
-        const favourites = JSON.parse(localStorage.favourites);
+        const favourites = localStorage.favourites ?
+            JSON.parse(localStorage.favourites):
+            [];
         return (
             <div>
                 { favourites.length ? this.fav() : this.noFav() }

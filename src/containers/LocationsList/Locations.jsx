@@ -5,24 +5,19 @@ import Item from "./locationItem";
 import { v1 } from "uuid";
 
 class Locations extends Component {
-    constructor(props) {
-        super(props);
-        this.state = { page: 1 };
+    state = { page: 1 };
 
-        this.handleLoadMore = this.handleLoadMore.bind(this);
-    }
-
-    handleLoadMore() {
+    handleLoadMore = () => {
         this.setState({ page: this.state.page++ });
 
         this.props.loadMoreLocations({
             placeName: this.props.locations.currentPlaceName,
             page: this.state.page
         });
-    }
+    };
 
     createListItems() {
-        if (this.props.locations.currentPlaceName !== "") {
+        if (this.props.locations.currentPlaceName !== "" && this.props.locations.list.length) {
             return this.props.locations.list.map(item =>
                 <Item
                     key={v1()}
@@ -30,10 +25,13 @@ class Locations extends Component {
                     remove={this.props.removeFromFavourites}
                     item={item}
                 />);
+        } else if (this.props.locations.currentPlaceName !== "" && !this.props.locations.list.length) {
+            return (<p>No results found.</p>);
+        } else {
+            return (
+                <h3>Enter a location to search for houses buy.</h3>
+            );
         }
-        return (
-            <h3>Enter a location to search for houses buy.</h3>
-        );
     }
 
     moreButton() {

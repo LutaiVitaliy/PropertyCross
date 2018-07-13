@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 const instructionalText = "Use the form below to search for houses to buy. You can search by place-name, postcode, or click 'My location', to search in your current location!"
 
 class SearchInputContainer extends React.Component {
-    state = {value: ""};
+    state = {value: "", emptyInputText: false};
 
     handleChange = event => {
         this.setState({ value: event.target.value });
@@ -23,10 +23,23 @@ class SearchInputContainer extends React.Component {
 
     handleSubmit = event => {
         event.preventDefault();
-        const placeName = this.state.value;
-        this.props.loadMoreLocations({ placeName });
-        this.props.setPlaceName(this.state.value);
+        const arr = this.state.value.split("");
+        const filteredArr = arr.filter(item =>  item !== " ");
+        if (filteredArr.length) {
+           this.setState({emptyInputText: false});
+           const placeName = this.state.value;
+           this.props.loadMoreLocations({placeName});
+           this.props.setPlaceName(this.state.value);
+       } else {
+           this.setState({emptyInputText: true});
+       }
     };
+
+    emptyInput() {
+        if (this.state.emptyInputText) {
+            return <p>Please, put location name</p>
+        } return null;
+    }
 
     render() {
         return (
@@ -38,6 +51,7 @@ class SearchInputContainer extends React.Component {
                     </label>
                     <input type="submit" value="Go" />
                     <button onClick={this.geoSearch}>My location</button>
+                    {this.emptyInput()}
                 </form>
             </div>
         );

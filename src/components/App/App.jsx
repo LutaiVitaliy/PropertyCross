@@ -8,13 +8,14 @@ import s from "./styles.scss";
 import PropertyDetail from "../../containers/LocationsList/property-detail";
 import MainPageComponent from "./MainPageComponent";
 import FavProperties from "./FavPropertiesPage";
+import { ComponentWithWindowScrollPosition } from "./MainPageComponent";
 
 class App extends React.Component {
     render() {
         return (
             <Router>
                 <div className={s.container}>
-                    <Route exact path="/" component={MainPageComponent} />
+                    <Route exact path="/" component={ComponentWithWindowScrollPosition} />
                     <Route path="/details" component={PropertyDetail} />
                     <Route path="/favourites" component={FavProperties} />
                 </div>
